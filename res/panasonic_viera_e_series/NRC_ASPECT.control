@@ -1,0 +1,14 @@
+scheme=http
+host=192.168.0.7
+port=55000
+path=/nrc/control_0
+
+user.agent=Panasonic Android VR-CP UPnP/2.0
+content.type=text/xml
+header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
+
+data=NRC_ASPECT.xml
+
+label=Aspect
+row=1
+column=1
