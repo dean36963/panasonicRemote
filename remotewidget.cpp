@@ -29,14 +29,14 @@ void RemoteWidget::initUi() {
     while(it.hasNext()) {
         QString fileName = it.next();
         if(fileName.contains(".control")) {
-            CommandFile commandFile(fileName,path);
-            QPushButton *button = new QPushButton(this);
+            //RemoteButton handles the commandFile now.
+            CommandFile *commandFile = new CommandFile(fileName,path);
+            RemoteButton *button = new RemoteButton(commandFile,this);
+            layout->addWidget(button,commandFile->getRow(),commandFile->getColumn(),1,1);
             //TODO Do some grid layout based on a commandfile property
-            button->setText(commandFile.getLabel());
             //TODO for connecting up these buttons, override the pushbutton
             //widget, connecting a slot to it's own selected signal
             //TODO also put an autorepeat option on the button to match a property on the commandfile
-
             buttons.push_back(button);
         }
     }

@@ -30,6 +30,8 @@ public:
     QFile* getDataFile();
     QString getDataFileContents();
     QString getLabel();
+    int getRow();
+    int getColumn();
 private:
     void processLine(QString line);
     void processProperty(QString property, QString value);
@@ -49,6 +51,8 @@ private:
     QFile dataFile;
 
     QString label;
+    int row;
+    int column;
 };
 
 #endif // COMMANDFILE_H

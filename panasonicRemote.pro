@@ -15,8 +15,10 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     remotewidget.cpp \
-    commandfile.cpp
+    commandfile.cpp \
+    remotebutton.cpp
 
 HEADERS  += mainwindow.h \
     remotewidget.h \
-    commandfile.h
+    commandfile.h \
+    remotebutton.h

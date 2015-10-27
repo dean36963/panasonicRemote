@@ -10,6 +10,7 @@
 #include <QGridLayout>
 
 #include "commandfile.h"
+#include "remotebutton.h"
 
 #include <iostream>
 

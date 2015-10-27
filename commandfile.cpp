@@ -61,6 +61,10 @@ void CommandFile::processProperty(QString property, QString value) {
         rawHeaders.insert(header,value);
     } else if(property=="label") {
         label = value;
+    } else if(property=="row") {
+        row = value.toInt();
+    } else if(property=="column") {
+        column = value.toInt();
     }
 }
 
@@ -103,4 +107,10 @@ QFile* CommandFile::getDataFile() {
 }
 QString CommandFile::getLabel() {
     return label;
+}
+int CommandFile::getRow() {
+    return row;
+}
+int CommandFile::getColumn(){
+    return column;
 }

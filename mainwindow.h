@@ -30,8 +30,7 @@ private:
     RemoteWidget *remoteWidget;
     void initUi();
 public slots:
-    void testSelected();
-    void testFinished(QNetworkReply*reply);
+
 };
 
 #endif // MAINWINDOW_H
