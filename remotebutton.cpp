@@ -18,7 +18,7 @@ void RemoteButton::send(bool) {
     url.setHost(file->getHost());
     url.setPort(file->getPort().toInt());
     url.setPath(file->getPath());
-    cout << "Url: " << url.toString().toStdString() << endl;
+    cout << "Sending request for " << file->getLabel().toStdString() << endl;
 
     QNetworkRequest request = QNetworkRequest(url);
 
@@ -36,8 +36,10 @@ void RemoteButton::send(bool) {
     manager->post(request,file->getDataFileContents().toLocal8Bit());
 }
 
-//TODO Add logging if needed
 void RemoteButton::logResponse(QNetworkReply * reply) {
-//    cout << "http respons: " << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt() << endl;
-//    cout << "got response with error: " << reply->error() << endl;
+    int httpStatus = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+    if(httpStatus!=200) {
+        cout << "http respons: " << httpStatus << endl;
+        cout << "got response with error: " << reply->error() << endl;
+    }
 }

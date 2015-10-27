@@ -5,8 +5,15 @@
 #include <QPushButton>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QStyle>
+#include <QColor>
 
 #include "commandfile.h"
+
+#include <iostream>
+
+using namespace std;
 
 
 class RemoteButton : public QPushButton

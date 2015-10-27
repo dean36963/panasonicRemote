@@ -10,5 +10,5 @@ header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
 data=voldown.xml
 
 label=Volume Down
-row=0
+row=14
 column=0
