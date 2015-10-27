@@ -2,21 +2,31 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     this->parent = parent;
+    //TODO setup menus
     initUi();
 }
 
 MainWindow::~MainWindow() {
-
+    delete remoteWidget;
 }
 
 void MainWindow::initUi() {
-    QPushButton * testButton = new QPushButton(parent);
-    testButton->setText("Test");
-    connect(testButton,SIGNAL(clicked(bool)),this,SLOT(testSelected()));
-    setCentralWidget(testButton);
+    //Create a widget to hold lots of buttons
+    QString path = QString("res")
+                .append(QDir::separator())
+                .append("panasonic_viera_e_series");
+    remoteWidget = new RemoteWidget(path);
+    //Set this widget as the main menu
+    setCentralWidget(remoteWidget);
+
+//    QPushButton * testButton = new QPushButton(parent);
+//    testButton->setText("Test");
+//    connect(testButton,SIGNAL(clicked(bool)),this,SLOT(testSelected()));
+//    setCentralWidget(testButton);
 }
 
 void MainWindow::testSelected() {
+    //TODO move this completely to some other class
     cout << "test" << endl;
 
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
@@ -30,7 +40,6 @@ void MainWindow::testSelected() {
     cout << "Url: " << url.toString().toStdString() << endl;
 
     QNetworkRequest request = QNetworkRequest(url);
-    QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::MixedType);
 
     request.setHeader(QNetworkRequest::ContentTypeHeader,"text/xml");
     request.setHeader(QNetworkRequest::UserAgentHeader,"Panasonic Android VR-CP UPnP/2.0");
@@ -50,6 +59,7 @@ void MainWindow::testSelected() {
     QByteArray b = xml.toLocal8Bit();
 
     manager->post(request,b);
+//    delete manager;
 }
 
 void MainWindow::testFinished(QNetworkReply * reply) {

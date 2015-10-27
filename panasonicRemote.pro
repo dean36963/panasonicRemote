@@ -13,6 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    remotewidget.cpp \
+    commandfile.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    remotewidget.h \
+    commandfile.h

@@ -11,6 +11,8 @@
 #include <QUrl>
 #include <QUrlQuery>
 
+#include "remotewidget.h"
+
 #include <iostream>
 
 using namespace std;
@@ -25,6 +27,7 @@ public:
 private:
     QList<QPushButton*> buttons;
     QWidget *parent;
+    RemoteWidget *remoteWidget;
     void initUi();
 public slots:
     void testSelected();
