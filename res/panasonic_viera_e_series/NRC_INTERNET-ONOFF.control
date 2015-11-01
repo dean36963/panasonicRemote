@@ -7,8 +7,8 @@ user.agent=Panasonic Android VR-CP UPnP/2.0
 content.type=text/xml
 header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
 
-data=NRC_UP.xml
+data=NRC_INTERNET-ONOFF.xml
 
-label=Up
-row=5
-column=1
+label=Internet
+row=4
+column=0

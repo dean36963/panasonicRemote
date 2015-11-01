@@ -22,9 +22,11 @@ class RemoteButton : public QPushButton
 public:
     explicit RemoteButton(CommandFile *file, QWidget *parent = 0);
     ~RemoteButton();
+    void setHost(QString host);
 
 private:
     CommandFile *file;
+    QString host;
 signals:
 
 public slots:

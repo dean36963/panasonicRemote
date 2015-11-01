@@ -10,5 +10,5 @@ header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
 data=NRC_RIGHT.xml
 
 label=Right
-row=4
+row=5
 column=3

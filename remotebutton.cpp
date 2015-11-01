@@ -10,12 +10,16 @@ RemoteButton::~RemoteButton() {
     delete file;
 }
 
+void RemoteButton::setHost(QString host) {
+    this->host = host;
+}
+
 void RemoteButton::send(bool) {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     QUrl url = QUrl();
     url.setScheme(file->getScheme());
     //FIXME Needs autodetecting!
-    url.setHost(file->getHost());
+    url.setHost(host);
     url.setPort(file->getPort().toInt());
     url.setPath(file->getPath());
     cout << "Sending request for " << file->getLabel().toStdString() << endl;
