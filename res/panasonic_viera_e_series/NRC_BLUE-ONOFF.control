@@ -7,8 +7,8 @@ user.agent=Panasonic Android VR-CP UPnP/2.0
 content.type=text/xml
 header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
 
-data=NRC_ENTER-ONOFF.xml
+data=NRC_BLUE-ONOFF.xml
 
-label=OK
-row=5
-column=1
+label=Blue
+row=10
+column=3

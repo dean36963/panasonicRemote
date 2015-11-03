@@ -10,5 +10,5 @@ header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
 data=NRC_VTOOLS-ONOFF.xml
 
 label=Viera Tools
-row=4
+row=3
 column=1

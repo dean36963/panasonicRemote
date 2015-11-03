@@ -10,7 +10,7 @@ header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
 data=voldown.xml
 
 label=Volume Down
-row=14
+row=11
 column=0
 
 autorepeat=true

@@ -9,6 +9,6 @@ header.SOAPACTION="urn:panasonic-com:service:p00NetworkControl:1#X_SendKey"
 
 data=NRC_CANCEL-ONOFF.xml
 
-label=Back/Return
-row=6
-column=3
+label=Exit
+row=3
+column=2
