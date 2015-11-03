@@ -12,3 +12,5 @@ data=voldown.xml
 label=Volume Down
 row=14
 column=0
+
+autorepeat=true

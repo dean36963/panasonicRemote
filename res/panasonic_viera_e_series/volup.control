@@ -12,3 +12,5 @@ data=volup.xml
 label=Volume Up
 row=14
 column=1
+
+autorepeat=true

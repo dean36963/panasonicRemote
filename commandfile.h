@@ -32,6 +32,7 @@ public:
     QString getLabel();
     int getRow();
     int getColumn();
+    bool isAutoRepeat();
 private:
     void processLine(QString line);
     void processProperty(QString property, QString value);
@@ -53,6 +54,7 @@ private:
     QString label;
     int row;
     int column;
+    bool autoRepeat;
 };
 
 #endif // COMMANDFILE_H

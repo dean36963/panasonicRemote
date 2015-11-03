@@ -5,6 +5,7 @@ CommandFile::CommandFile(QString file, QString dir) {
     this->dir = dir;
     cout << "Attempting to open: " << file.toStdString() << endl;
     QFile qFile(file);
+    autoRepeat = false;
 
     if(qFile.open(QIODevice::ReadOnly)) {
         QTextStream in(&qFile);
@@ -65,6 +66,10 @@ void CommandFile::processProperty(QString property, QString value) {
         row = value.toInt();
     } else if(property=="column") {
         column = value.toInt();
+    } else if(property=="autorepeat") {
+        if(value=="true") {
+            autoRepeat = true;
+        }
     }
 }
 
@@ -113,4 +118,7 @@ int CommandFile::getRow() {
 }
 int CommandFile::getColumn(){
     return column;
+}
+bool CommandFile::isAutoRepeat() {
+    return autoRepeat;
 }

@@ -3,6 +3,10 @@
 RemoteButton::RemoteButton(CommandFile *file, QWidget *parent) : QPushButton(parent) {
     this->file = file;
     setText(file->getLabel());
+    if(file->isAutoRepeat()) {
+        setAutoRepeat(true);
+        setAutoRepeatInterval(autoRepeatDelay()/10.0);
+    }
     connect(this,SIGNAL(clicked(bool)),this,SLOT(send(bool)));
 }
 
