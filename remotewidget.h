@@ -16,6 +16,7 @@
 
 #include "commandfile.h"
 #include "remotebutton.h"
+#include "ipsaver.h"
 
 #include <iostream>
 

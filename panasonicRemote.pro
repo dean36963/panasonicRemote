@@ -16,9 +16,11 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     remotewidget.cpp \
     commandfile.cpp \
-    remotebutton.cpp
+    remotebutton.cpp \
+    ipsaver.cpp
 
 HEADERS  += mainwindow.h \
     remotewidget.h \
     commandfile.h \
-    remotebutton.h
+    remotebutton.h \
+    ipsaver.h

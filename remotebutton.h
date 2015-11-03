@@ -10,6 +10,7 @@
 #include <QColor>
 
 #include "commandfile.h"
+#include "ipsaver.h"
 
 #include <iostream>
 

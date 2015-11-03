@@ -21,10 +21,12 @@ void RemoteWidget::initUi() {
     layout->addWidget(hostSelector,0,1,1,2);
     hostSelector->setEditable(true);
     hostSelector->setToolTip("Select a host");
-    connect(hostSelector,SIGNAL(editTextChanged(QString)),this,SLOT(hostChanged()));
+    connect(hostSelector,SIGNAL(editTextChanged(QString)),this,SLOT(hostChanged()));    
+    hostSelector->addItems(IPSaver::getInstance()->getHosts());
+    hostSelector->setCurrentText(IPSaver::getInstance()->getMostRecentHost());
 
     hostLabel = new QLabel(this);
-    hostLabel->setText("IP Address of TV");
+    hostLabel->setText("IP Address of TV:");
     layout->addWidget(hostLabel,0,0,1,1);
 
     pingHost = new QPushButton(this);

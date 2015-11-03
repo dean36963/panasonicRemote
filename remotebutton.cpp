@@ -18,7 +18,6 @@ void RemoteButton::send(bool) {
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     QUrl url = QUrl();
     url.setScheme(file->getScheme());
-    //FIXME Needs autodetecting!
     url.setHost(host);
     url.setPort(file->getPort().toInt());
     url.setPath(file->getPath());
@@ -43,7 +42,9 @@ void RemoteButton::send(bool) {
 void RemoteButton::logResponse(QNetworkReply * reply) {
     int httpStatus = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if(httpStatus!=200) {
-        cout << "http respons: " << httpStatus << endl;
-        cout << "got response with error: " << reply->error() << endl;
+        cout << "HTTP response: " << httpStatus << endl;
+        cout << "Got response with QNetworkReploy::error value: " << reply->error() << endl;
+    } else {
+        IPSaver::getInstance()->addNewHost(host);
     }
 }
