@@ -1,9 +1,14 @@
 #!/bin/bash
-git clone https://github.com/mxe/mxe.git
-cd mxe
-make qtbase
-export PATH="$(pwd)/usr/bin:$(pwd)/usr/i686-w64-mingw32.static/{,qt5}/bin:$PATH"
-cd ..
+if [[ "X$MXE" == "$MXE" ]] ; then
+	MXE=mxe
+fi
+if [[ -d $MXE ]] ; then
+	git clone https://github.com/mxe/mxe.git $MXE
+	cd $MXE
+	make qtbase
+	cd -
+fi
+export PATH="$(MXE)/usr/bin:$(MXE)/usr/i686-w64-mingw32.static/{,qt5}/bin:$PATH"
 qmake
 make
 mv release/panasonicRemote.exe .
