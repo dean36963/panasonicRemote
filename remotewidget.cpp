@@ -15,6 +15,11 @@ RemoteWidget::~RemoteWidget() {
         delete button;
     }
     delete layout;
+    delete buttonLayout;
+    delete hostSelector;
+    delete hostLabel;
+    delete pingHost;
+    delete splitter;
 }
 
 void RemoteWidget::initUi() {
