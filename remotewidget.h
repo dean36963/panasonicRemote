@@ -13,6 +13,7 @@
 #include <QLabel>
 #include <QComboBox>
 #include <QSocketNotifier>
+#include <QFileInfo>
 
 #include "commandfile.h"
 #include "remotebutton.h"
@@ -26,11 +27,12 @@ class RemoteWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit RemoteWidget(QString pathToConfig, QWidget *parent = 0);
+    explicit RemoteWidget(QString pathToConfig, QString autoExecCmd="", QWidget *parent = 0);
     ~RemoteWidget();
 
 private:
     QString configPath;
+    QString autoExecCmd;
     void initUi();
     QList<RemoteButton*> buttons;
     QGridLayout *layout;

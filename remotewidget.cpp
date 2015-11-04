@@ -1,7 +1,8 @@
 #include "remotewidget.h"
 
-RemoteWidget::RemoteWidget(QString pathToConfig, QWidget *parent) : QWidget(parent) {
+RemoteWidget::RemoteWidget(QString pathToConfig, QString autoExecCmd, QWidget *parent) : QWidget(parent) {
     this->configPath = pathToConfig;
+    this->autoExecCmd = autoExecCmd;
     layout = new QGridLayout();
     buttonLayout = new QGridLayout();
     setLayout(layout);
@@ -24,7 +25,6 @@ void RemoteWidget::initUi() {
     connect(hostSelector,SIGNAL(editTextChanged(QString)),this,SLOT(hostChanged()));
     hostSelector->addItems(IPSaver::getInstance()->getHosts());
     hostSelector->setCurrentText(IPSaver::getInstance()->getMostRecentHost());
-
 
     hostLabel = new QLabel(this);
     hostLabel->setText("IP Address of TV:");
@@ -57,8 +57,14 @@ void RemoteWidget::initUi() {
             CommandFile *commandFile = new CommandFile(fileName,path);
             RemoteButton *button = new RemoteButton(commandFile,this);
             buttonLayout->addWidget(button,commandFile->getRow(),commandFile->getColumn(),1,1);
-
-            //TODO also put an autorepeat option on the button to match a property on the commandfile
+            QFileInfo fileInfo(fileName);
+            if(fileInfo.baseName()==autoExecCmd) {
+                button->setHost(IPSaver::getInstance()->getMostRecentHost());
+                button->setQuitOnResponse(true);
+                button->clicked();
+                cout << "AutoExec sent" << endl;
+                return;
+            }
             buttons.push_back(button);
         }
     }

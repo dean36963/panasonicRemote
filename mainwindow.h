@@ -10,6 +10,7 @@
 #include <QtNetwork/QNetworkReply>
 #include <QUrl>
 #include <QUrlQuery>
+#include <QCoreApplication>
 
 #include "remotewidget.h"
 
@@ -24,11 +25,15 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    bool isFinished();
 private:
     QList<QPushButton*> buttons;
     QWidget *parent;
     RemoteWidget *remoteWidget;
     void initUi();
+    QString path;
+    QString autoExecCmdFile;
+    bool finished;
 public slots:
 
 };

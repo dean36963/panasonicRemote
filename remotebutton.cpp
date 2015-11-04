@@ -2,6 +2,7 @@
 
 RemoteButton::RemoteButton(CommandFile *file, QWidget *parent) : QPushButton(parent) {
     this->file = file;
+    quit = false;
     setText(file->getLabel());
     if(file->isAutoRepeat()) {
         setAutoRepeat(true);
@@ -51,4 +52,11 @@ void RemoteButton::logResponse(QNetworkReply * reply) {
     } else {
         IPSaver::getInstance()->addNewHost(host);
     }
+    if(quit) {
+        quick_exit(0);
+    }
+}
+
+void RemoteButton::setQuitOnResponse(bool quit) {
+    this->quit = quit;
 }

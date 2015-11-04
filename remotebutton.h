@@ -24,10 +24,12 @@ public:
     explicit RemoteButton(CommandFile *file, QWidget *parent = 0);
     ~RemoteButton();
     void setHost(QString host);
+    void setQuitOnResponse(bool quit);
 
 private:
     CommandFile *file;
     QString host;
+    bool quit;
 signals:
 
 public slots:
