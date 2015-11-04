@@ -18,7 +18,6 @@ RemoteWidget::~RemoteWidget() {
     delete layout;
     delete hostSelector;
     delete hostLabel;
-    delete pingHost;
     delete splitter;
 }
 
@@ -34,11 +33,6 @@ void RemoteWidget::initUi() {
     hostLabel = new QLabel(this);
     hostLabel->setText("IP Address of TV:");
     layout->addWidget(hostLabel,0,0,1,1);
-
-    pingHost = new QPushButton(this);
-    pingHost->setText("Test");
-    layout->addWidget(pingHost,0,3,1,1);
-    connect(pingHost,SIGNAL(clicked(bool)),this,SLOT(pingHostClicked()));
 
     splitter = new QSplitter(this);
     layout->addWidget(splitter,1,0,1,4);
