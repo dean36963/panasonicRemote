@@ -14,8 +14,8 @@ RemoteWidget::~RemoteWidget() {
         QPushButton * button = buttons.at(i);
         delete button;
     }
-    delete layout;
     delete buttonLayout;
+    delete layout;
     delete hostSelector;
     delete hostLabel;
     delete pingHost;
