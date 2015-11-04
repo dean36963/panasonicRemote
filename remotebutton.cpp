@@ -53,7 +53,7 @@ void RemoteButton::logResponse(QNetworkReply * reply) {
         IPSaver::getInstance()->addNewHost(host);
     }
     if(quit) {
-        quick_exit(0);
+        exit(0);
     }
 }
 
