@@ -9,6 +9,7 @@ if [[ -d $MXE ]] ; then
 	cd -
 fi
 export PATH="$MXE/usr/bin:$MXE/usr/i686-w64-mingw32.static/{,qt5}/bin:$PATH"
+echo $PATH
 which qmake
 qmake
 make
